@@ -11,13 +11,13 @@ classDiagram
         +String name
         +String specialty
         +Contact contact
+        +Address address
         +List~Availability~ availability
     }
 
     class Contact {
         +String email
         +String phoneNumber
-        +Address address
     }
 
     class Address {
@@ -33,38 +33,8 @@ classDiagram
         +List~String~ timeSlots
     }
 
-    class User {
-        +Long id
-        +String name
-        +Account account
-    }
-
-    class Account {
-        +String email
-        +String password
-        +String phoneNumber
-        +Address address
-    }
-
-    class Scheduling {
-        +Long id
-        +Long doctorId
-        +LocalDate date
-        +String time
-        +String status
-    }
-
-    class Feature {
-        +String button
-        +String description
-    }
-
     Doctor "1" --> "1" Contact
-    Contact "1" --> "1" Address
+    Doctor "1" --> "1" Address
     Doctor "1" --> "*" Availability
-    User "1" --> "1" Account
-    Account "1" --> "1" Address
-    User "1" --> "*" Scheduling
-    User "1" --> "1" Feature
 
 ```
