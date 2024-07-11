@@ -53,8 +53,8 @@ classDiagram
         +List~String~ timeSlots
     }
     
-    Doctor "1" --> "1" Contact
-    Contact "1" --> "1" Address
-    Doctor "1" --> "*" Availability   
+    Doctor "1" *-- "1" Contact
+    Contact "1" *-- "1" Address
+    Doctor "1" *-- "*" Availability   
 
 ```
