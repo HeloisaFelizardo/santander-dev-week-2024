@@ -6,18 +6,17 @@ Java RESTful API criada para a Santander Dev Week.
 
 ```mermaid
 classDiagram
-    class Doctor {
-        +Long id
+    class Doctor {       
         +String name
         +String specialty
         +Contact contact
-        +Address address
         +List~Availability~ availability
     }
 
     class Contact {
         +String email
         +String phoneNumber
+        +Address address
     }
 
     class Address {
@@ -32,9 +31,9 @@ classDiagram
         +LocalDate date
         +List~String~ timeSlots
     }
-
+    
     Doctor "1" --> "1" Contact
-    Doctor "1" --> "1" Address
-    Doctor "1" --> "*" Availability
+    Contact "1" --> "1" Address
+    Doctor "1" --> "*" Availability   
 
 ```
