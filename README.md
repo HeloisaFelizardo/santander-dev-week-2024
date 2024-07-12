@@ -55,6 +55,10 @@ classDiagram
     
     Doctor "1" *-- "1" Contact
     Contact "1" *-- "1" Address
-    Doctor "1" *-- "*" Availability   
+    Doctor "1" *-- "N" Availability   
 
 ```
+# Futuras Melhorias
+- Implementar o cadastro de pacientes.
+- Implementar o agendamento de consultas.
+- Adicionar autenticação e autorização.

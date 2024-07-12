@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "tb_doctor")
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,11 +13,8 @@ public class Doctor {
     private String name;
     private String specialty;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Contact contact;
-
-    @OneToOne
-    private Address address;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Availability> availability;
@@ -52,14 +49,6 @@ public class Doctor {
 
     public void setContact(Contact contact) {
         this.contact = contact;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 
     public List<Availability> getAvailability() {

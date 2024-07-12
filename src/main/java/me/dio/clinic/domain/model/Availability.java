@@ -11,8 +11,7 @@ public class Availability {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate date;
-    @ElementCollection
-    private List<String> timeSlots;
+    private String timeSlots;
 
     public Long getId() {
         return id;
@@ -30,11 +29,11 @@ public class Availability {
         this.date = date;
     }
 
-    public List<String> getTimeSlots() {
+    public String getTimeSlots() {
         return timeSlots;
     }
 
-    public void setTimeSlots(List<String> timeSlots) {
+    public void setTimeSlots(String timeSlots) {
         this.timeSlots = timeSlots;
     }
 }
