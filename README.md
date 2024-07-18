@@ -55,7 +55,7 @@ classDiagram
     
     Doctor "1" *-- "1" Contact
     Contact "1" *-- "1" Address
-    Doctor "1" *-- "N" Availability   
+    Doctor "1" *-- "N" Availability  
 
 ```
 # Futuras Melhorias
