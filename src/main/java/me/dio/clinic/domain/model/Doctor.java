@@ -2,7 +2,6 @@ package me.dio.clinic.domain.model;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "tb_doctor")
@@ -10,13 +9,14 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private String specialty;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @Embedded
     private Contact contact;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "doctor")
     private List<Availability> availability;
 
     public Long getId() {

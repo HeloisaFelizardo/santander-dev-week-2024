@@ -50,7 +50,7 @@ classDiagram
     class Availability {
         +Long id
         +LocalDate date
-        +List~String~ timeSlots
+        +String time
     }
     
     Doctor "1" *-- "1" Contact

@@ -1,14 +1,21 @@
-package me.dio.clinic.domain.model;
+package me.dio.clinic.dto;
 
-import jakarta.persistence.*;
+import me.dio.clinic.domain.model.Address;
 
-@Embeddable
-public class Address {
+public class AddressDTO {
     private String street;
     private String city;
     private String state;
     private String zipcode;
 
+    public AddressDTO(Address address) {
+        this.street = address.getStreet();
+        this.city = address.getCity();
+        this.state = address.getState();
+        this.zipcode = address.getZipcode();
+    }
+
+    // getters and setters
     public String getStreet() {
         return street;
     }

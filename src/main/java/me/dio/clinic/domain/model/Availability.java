@@ -1,17 +1,25 @@
 package me.dio.clinic.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import me.dio.clinic.domain.model.Doctor;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalTime;
 
 @Entity(name = "tb_availability")
 public class Availability {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDate date;
-    private String timeSlots;
+
+    private String date;
+    private String time;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    @JsonIgnore
+    private Doctor doctor;
 
     public Long getId() {
         return id;
@@ -21,21 +29,27 @@ public class Availability {
         this.id = id;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public String getTimeSlots() {
-        return timeSlots;
+    public String getTime() {
+        return time;
     }
 
-    public void setTimeSlots(String timeSlots) {
-        this.timeSlots = timeSlots;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 }
-
-
